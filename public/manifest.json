@@ -1,0 +1,22 @@
+{
+    "short_name": "Boda - Gloria y Carlos",
+    "name": "Nuestra Boda - Gloria y Carlos",
+    "description": "La página de nuestra boda",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff6f61",
+    "icons": [
+      {
+        "src": "/icons/icon-192x192.jpeg",
+        "sizes": "192x192",
+        "type": "image/jpeg"
+      },
+      {
+        "src": "/icons/icon-512x512.jpeg",
+        "sizes": "512x512",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+  

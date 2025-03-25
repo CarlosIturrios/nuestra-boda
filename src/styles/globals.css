@@ -1,0 +1,161 @@
+/* src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Quicksand', sans-serif !important;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Ocultar contenido en orientación vertical */
+@media screen and (orientation: portrait) {
+  body::before {
+    content: "Por favor, gira tu dispositivo para ver el contenido en su formato adecuado 😊";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-size: 24px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+}
+
+/* Secciones de la página */
+.home,
+.page2,
+.page3,
+.page4,
+.page5,
+.page6,
+.page7,
+.page8,
+.cuentaRegresiva {
+  width: 100vw;
+  height: 110vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.home {
+  background-image: url('/photos/Home.png');
+}
+
+.page2 {
+  background-image: url('/photos/OurStory.png');
+}
+
+.page3 {
+  background-image: url('/photos/RSVP.png');
+}
+
+.page4 {
+  background-image: url('/photos/Details.png');
+}
+
+.page5 {
+  background-image: url('/photos/5.png');
+}
+
+.page6 {
+  background-image: url('/photos/6.png');
+}
+
+/* Barra de navegación */
+.nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.284);
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  display: none;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #ff6f61;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #ff4f45;
+}
+
+/* Botón de menú */
+.menu-toggle {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  background-color: rgba(0, 0, 0, 0.284);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav.show {
+  display: flex;
+}
+
+.photos {
+  display: none;
+  transition: display 0.3s ease-in-out;
+}
+
+.photos[hidden] {
+  display: none !important;
+}
+
+.photos:not([hidden]) {
+  display: flex;
+}
