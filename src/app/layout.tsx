@@ -26,6 +26,11 @@ const Layout: React.FC = () => {
         <meta name="theme-color" content="#ff6f61" />
         {/* Establecemos el icono de la página */}
         <link rel="icon" href="/favicon.ico" />
+        {/* Establecemos el titulo que aparecera en la pestaña del navegador */}
+        <title>Nuestra Boda - Gloria y Carlos</title> 
+
+        {/* Meta descripción (opcional, mejora el SEO) */}
+        <meta name="description" content="Bienvenidos a nuestra boda, una celebración especial entre Gloria y Carlos. Comparte tus recuerdos con nosotros." />
       </head>
       <body>
         {/* El CountdownProvider proporciona el contexto de cuenta regresiva a sus componentes hijos */}
