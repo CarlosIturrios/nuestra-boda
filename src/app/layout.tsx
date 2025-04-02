@@ -6,7 +6,7 @@
 
 'use client';  // Indica que este archivo es para el cliente (no se ejecuta en el servidor).
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CountdownProvider } from './context/CountdownContext'; // Importamos el contexto para la cuenta regresiva.
 import Nav from './components/Nav'; // Importamos el componente de navegación.
 import HomePage from './components/Page'; // Importamos la página principal.
@@ -17,22 +17,36 @@ import '../styles/globals.css'; // Importamos los estilos globales.
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Importamos los iconos de FontAwesome para usarlos en la página.
 
 const Layout: React.FC = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.volume = 0.5; // de 0.1 a 1.0
+      const playAudio = () => {
+        audio.play().catch((err) => console.log("Reproducción bloqueada por el navegador", err));
+      };
+      document.addEventListener('click', playAudio, { once: true });
+    }
+  }, []);
+
   return (
     // El componente <html> define el lenguaje para la página.
     <html lang="en">
       <head>
         {/* Configuramos el archivo manifest y el color de tema para el PWA */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#ff6f61" />
+        <meta name="theme-color" content="#fff9bf" />
         {/* Establecemos el icono de la página */}
         <link rel="icon" href="/favicon.ico" />
         {/* Establecemos el titulo que aparecera en la pestaña del navegador */}
-        <title>Nuestra Boda - Gloria y Carlos</title> 
+        <title>Nuestra Boda - Gloria y Carlos</title>
 
         {/* Meta descripción (opcional, mejora el SEO) */}
         <meta name="description" content="Bienvenidos a nuestra boda, una celebración especial entre Gloria y Carlos. Comparte tus recuerdos con nosotros." />
       </head>
       <body>
+        <audio ref={audioRef} src="/audios/musica_de_fondo.mp3" loop />
         {/* El CountdownProvider proporciona el contexto de cuenta regresiva a sus componentes hijos */}
         <CountdownProvider>
           {/* El componente Nav es la barra de navegación de la página */}

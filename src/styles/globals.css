@@ -15,27 +15,47 @@ html {
   font-family: 'Quicksand', sans-serif !important;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background: radial-gradient(ellipse, #ffffff 50%, #fff7ad 200%);
 }
 
 /* Ocultar contenido en orientación vertical */
 @media screen and (orientation: portrait) {
-  body::before {
-    content: "Por favor, gira tu dispositivo para ver el contenido en su formato adecuado 😊";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    font-size: 24px;
-    background-color: black;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
+  .home {
+    background-image: url('/photos/Home-vertical.png') !important;
+  }
+
+  .page2 {
+    background-image: url('/photos/OurStory-vertical.png') !important;
+  }
+
+  .page3 {
+    background-image: url('/photos/RSVP-vertical.png') !important;
+  }
+
+  .page4 {
+    background-image: url('/photos/Details-vertical.png') !important;
+  }
+
+  .page5 {
+    background-image: url('/photos/5-vertical.png') !important;
+  }
+
+  .page6 {
+    background-image: url('/photos/6-vertical.png') !important;
+  }
+
+  /* Ajustar el fondo para que cubra bien sin distorsión */
+  .home,
+  .page2,
+  .page3,
+  .page4,
+  .page5,
+  .page6 {
+    background-size: cover;
+    background-position: center;
   }
 }
+
 
 /* Secciones de la página */
 .home,
@@ -158,4 +178,8 @@ html {
 
 .photos:not([hidden]) {
   display: flex;
+}
+
+#timer {
+  font-size: clamp(40px, 10vw, 100px);
 }
